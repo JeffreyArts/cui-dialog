@@ -37,7 +37,7 @@ var watching   = {
 var source    = {
     default: {
         scss: [
-			'./scss/index.scss'
+			'./_scss/index.scss'
         ],
         js: [
             './_js/api.js',
@@ -73,7 +73,7 @@ var port = 5000;
 gulp.task('var:default',function() {
 	app     = 'default';
 	cssName = 'cui-dialog';
-    jsName  = 'cui-dialog.js';
+    jsName  = 'cui-dialog';
     port    = port;
     www     = wwwDev;
 });
@@ -102,7 +102,7 @@ gulp.task('watch:scss', function () {
     gulp.watch(watching[app].scss,['scss->css']);
 });
 
-gulp.task('minify:css', function () {
+gulp.task('minify:scss', function () {
     var processors = [
         autoprefixer({browsers: ['last 20 versions']}),
         postcssCalc(),
@@ -110,9 +110,10 @@ gulp.task('minify:css', function () {
     ];
 
 
-    return gulp.src(source[app].css)
+    return gulp.src(source[app].scss)
+        .pipe(sass().on('error', sass.logError))
         .pipe(postcss(processors))
-        .pipe(concat(cssName + '.css'))
+        .pipe(concat(cssName + '.min.css'))
         .pipe(gulp.dest(destination[app].css))
 });
 
@@ -123,15 +124,14 @@ gulp.task('minify:css', function () {
 
 gulp.task('minify:js',function() {
     return gulp.src(source[app].js)
-            .pipe(concat(jsName))
-            .pipe(ngAnnotate())
+            .pipe(concat(jsName + '.min.js'))
             .pipe(uglify())
         	.pipe(gulp.dest(destination[app].js))
 });
 
 gulp.task('move:js',function() {
     return gulp.src(source[app].js)
-            .pipe(concat(jsName))
+            .pipe(concat(jsName + '.js'))
         	.pipe(gulp.dest(destination[app].js))
 });
 
@@ -168,6 +168,9 @@ gulp.task('start-server', function() {
 gulp.task('dev+css',    ['scss->css','watch:scss'                               ]);
 gulp.task('dev+js',     ['move:js' , 'watch:js'                                 ]);
 
+gulp.task('build+css',    ['scss->css', 'minify:scss'                           ]);
+gulp.task('build+js',     ['move:js', 'minify:js'                               ]);
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -178,4 +181,8 @@ gulp.task('default', [  'var:default',
                         'dev+js',
                         'dev+css',
                         'start-server'
+        ]);
+gulp.task('build', [  'var:default',
+                        'build+js',
+                        'build+css'
         ]);

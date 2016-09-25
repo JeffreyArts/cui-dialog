@@ -6,7 +6,6 @@ var cuiDialog = {
         if (dialogDom === null) {
             throw 'No cui-dialog found with name `' + name + '`';
         } else {
-            console.log(dialogDom);
             dialogDom.open();
         }
     },
