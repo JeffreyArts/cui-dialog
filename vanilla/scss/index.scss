@@ -1,0 +1,86 @@
+$dialogMargin: 24px;
+$dialogPadding: 48px;
+
+/*
+    Dialog  Container
+ */
+.cui-dialog--container {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1993;
+    margin: 0;
+    pointer-events: none;
+
+    &.__isBackground {
+        background-color: rgba(0,0,0,.5);
+    }
+}
+
+.cui-dialog {
+    position: absolute;
+    bottom: $dialogMargin;
+    top: $dialogMargin;
+    left: $dialogMargin;
+    right: $dialogMargin;
+    overflow: hidden;
+    padding: $dialogPadding;
+    pointer-events:none;
+    background-color: #fff;
+}
+
+
+
+
+/*
+    Dialog Close icon
+ */
+
+$iconSize: 36px; // The size of the icon
+
+.cui-dialog--close {
+    // The icon is being displayed in the center of this element, to move it downwards, increase the height value
+    display: block;
+    position: absolute;
+    right: $dialogPadding/2;
+    top: $dialogPadding/2;
+    height: $dialogPadding*2 - $iconSize/2;
+    width: $dialogPadding*2 - $iconSize/2;
+    z-index: 1;
+
+    &:before,
+    &:after {
+        width: 1px;
+        height: $iconSize;
+        margin: -#{$iconSize/2} -0.5px 0 0;
+        background-color: #222;
+        content:'';
+        position: absolute;
+        transform-origin:center;
+        transform:rotate(45deg);
+        top: 50%;
+        left: 50%;
+    }
+
+    &:before {
+        transform:rotate(-45deg);
+    }
+}
+
+
+
+
+/*
+    Dialog Content
+ */
+.cui-dialog--content {
+    width: calc(100% + #{$dialogPadding*2});
+    margin-left: -$dialogPadding;
+    padding-left: $dialogPadding;
+    padding-right: $dialogPadding;
+}
+
+@import './animation';
+@import './demo';

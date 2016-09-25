@@ -1,0 +1,140 @@
+/*
+    Dialog  Container
+ */
+.cui-dialog--container {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1993;
+  margin: 0;
+  pointer-events: none; }
+  .cui-dialog--container.__isBackground {
+    background-color: rgba(0, 0, 0, 0.5); }
+
+.cui-dialog {
+  position: absolute;
+  bottom: 24px;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  overflow: hidden;
+  padding: 48px;
+  pointer-events: none;
+  background-color: #fff; }
+
+/*
+    Dialog Close icon
+ */
+.cui-dialog--close {
+  display: block;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  height: 78px;
+  width: 78px;
+  z-index: 1; }
+  .cui-dialog--close:before, .cui-dialog--close:after {
+    width: 1px;
+    height: 36px;
+    margin: -18px -0.5px 0 0;
+    background-color: #222;
+    content: '';
+    position: absolute;
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 50%;
+    left: 50%; }
+  .cui-dialog--close:before {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg); }
+
+/*
+    Dialog Content
+ */
+.cui-dialog--content {
+  width: calc(100% + 96px);
+  margin-left: -48px;
+  padding-left: 48px;
+  padding-right: 48px; }
+
+.cui-dialog--container {
+  transition: .45s all ease-in-out; }
+  .cui-dialog--container.__hasBackground {
+    transition: .25s all ease-in-out; }
+
+.cui-dialog {
+  transition: .45s all ease-in-out; }
+
+.cui-header {
+  transition: .25s ease-in-out all; }
+
+.cui-dialog--container {
+  opacity: 0; }
+  .cui-dialog--container .cui-dialog {
+    -webkit-transform: translateY(-50px);
+        -ms-transform: translateY(-50px);
+            transform: translateY(-50px); }
+
+cui-dialog.__isOpen .cui-dialog--container,
+.cui-dialog--container.__isOpen {
+  opacity: 1; }
+  cui-dialog.__isOpen .cui-dialog--container.__isBackground,
+  .cui-dialog--container.__isOpen.__isBackground {
+    pointer-events: auto; }
+  cui-dialog.__isOpen .cui-dialog--container .cui-dialog,
+  .cui-dialog--container.__isOpen .cui-dialog {
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    pointer-events: auto; }
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("https://source.unsplash.com/random");
+  background-size: cover;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center; }
+
+.bg {
+  background-image: url("https://source.unsplash.com/random");
+  background-position: center center;
+  background-size: cover;
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
+  height: 50vh;
+  left: 0;
+  position: absolute;
+  top: 25vh;
+  width: 100%;
+  z-index: -1;
+  /* mix-blend-mode: soft-light; */
+  opacity: 0.5; }
+
+button {
+  font-size: 10vh;
+  display: inline-block;
+  font-family: Helvetica;
+  background: none transparent;
+  color: #fff;
+  border: none 0 transparent;
+  font-weight: bold;
+  font-family: 'Pacifico';
+  padding: 50px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
