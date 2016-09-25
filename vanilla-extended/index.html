@@ -11,11 +11,17 @@
 <body>
 
     <div class="bg"></div>
-    <button onclick="cuiDialog.open()">Open dialog</button>
+    <button onclick="cuiDialog.open('Jeffrey')">Open dialog Jeffrey</button>
+    <button onclick="cuiDialog.open('Ian')">Open dialog Ian</button>
 
 
-    <cui-dialog>
-        <h1>Hoi</h1>
+    <cui-dialog name="Jeffrey">
+        <h1>Hoi Jeffrey</h1>
     </cui-dialog>
+
+    <cui-dialog name="Ian">
+        <h1>Hoi Ian</h1>
+    </cui-dialog>
+
 </body>
 </html>

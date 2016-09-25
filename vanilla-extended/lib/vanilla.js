@@ -1,29 +1,23 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    console.log("DOM fully loaded and parsed");
+    // This will
     cuiDialog.dom = document.querySelector('cui-dialog');
-    cuiDialog.closeIcon = cuiDialog.dom.querySelector('cui-dialog--close');
-    cuiDialog.changeDialogState();
+    //cuiDialog.changeDialogState();
 });
 
-document.addEventListener("changeDialogState", function(event) {
-    var dom = document.querySelector('cui-dialog');
-    var state = event.detail.state;
-
-    if (state == 'open' && dom.className.indexOf('__isOpen') == -1) {
-        dom.className += ' __isOpen';
-    }
-
-    if (state == 'closed' && dom.className.indexOf('__isOpen') !== -1) {
-        dom.className = dom.className.replace('__isOpen', '');
-
-    }
-})
 
 var cuiDialog = {
-    state: 'closed',
-    changeDialogState: function(state) {
+    open: function(name) {
+        var dialogDom = document.querySelector('cui-dialog[name=' + name + ']');
+        console.log(name, dialogDom);
+        if (dialogDom === null) {
+            throw 'No cui-dialog found with name `' + name + '`';
+        } else {
+            dialogDom.open();
+        }
+    },
+    changeDialogState: function(domElement, state) {
         if (typeof state == 'undefined') {
-            state = cuiDialog.state;
+            var state = domElement.state;
         }
 
         var event = new CustomEvent('changeDialogState',
@@ -34,35 +28,61 @@ var cuiDialog = {
         	}
         )
 
-        cuiDialog.state = state;
 
-        cuiDialog.toggleBodyClass();
+        // Update the state
+        domElement.state = state;
+
+        // And update the corresponding classes
+        if (state == 'open' && domElement.className.indexOf('__isOpen') == -1) {
+            domElement.className += ' __isOpen';
+        }
+
+        if (state == 'closed' && domElement.className.indexOf('__isOpen') !== -1) {
+            domElement.className = domElement.className.replace('__isOpen', '');
+        }
+        console.log( state, domElement.className);
+
+        // Update the body class, I think I will remove this in the future.
+        // Since people can add this functionality themselve by simply adding
+        // an event listener on 'changeDialogState'
+        cuiDialog.toggleBodyClass(domElement);
+
+        // Sent the `changeDialogState` event
         document.dispatchEvent(event);
     },
-    toggle: function(){
-        cuiDialog.changeDialogState(cuiDialog.state === 'closed' ? 'open' : 'closed');
-    },
-    open: function(){
-        cuiDialog.changeDialogState('open');
-    },
-    close: function(){
-        cuiDialog.changeDialogState('closed');
-    },
-    toggleBodyClass: function(){
+
+    toggleBodyClass: function(domElement){
         var body = document.querySelector('body');
-        if (cuiDialog.state == 'open' && body.className.indexOf('activeDialog') == -1) {
+        if (domElement.state == 'open' && body.className.indexOf('activeDialog') == -1) {
             body.className += ' activeDialog';
         }
-        if (cuiDialog.state == 'closed' && body.className.indexOf('activeDialog') !== -1) {
+        if (domElement.state == 'closed' && body.className.indexOf('activeDialog') !== -1) {
             body.className = body.className.replace('activeDialog', '');
         }
     },
-    initialize: function(domElement){
+
+
+    initialize: function(domElement) {
+        // Add state functionality
+        domElement.state  = 'closed';
+        domElement.close  = function(){
+            cuiDialog.changeDialogState(domElement, 'closed');
+        };
+        domElement.open   = function(){
+            cuiDialog.changeDialogState(domElement, 'open');
+        };
+        domElement.toggle = function(){
+            var newState = this.state === 'closed' ? 'open' : 'closed';
+            cuiDialog.changeDialogState(this, newState);
+        };
+
+
+        // Add required domElements and move the innerHTML to a new 'main' domElement
         var content = domElement.innerHTML;
 
         var background = document.createElement('figure');
             background.className = 'cui-dialog--container __isBackground';
-            background.onclick = cuiDialog.close;
+            background.onclick = domElement.close;
 
         var container = document.createElement('div');
             container.className = 'cui-dialog--container';
@@ -72,7 +92,7 @@ var cuiDialog = {
 
         var close = document.createElement('i');
             close.className = 'cui-dialog--close';
-            close.onclick = cuiDialog.close;
+            close.onclick = domElement.close;
 
         var main = document.createElement('main');
             main.className = 'cui-dialog--content';
@@ -85,6 +105,10 @@ var cuiDialog = {
         domElement.innerHTML = '';
         domElement.appendChild(background);
         domElement.appendChild(dialog);
+
+
+        console.log(domElement);
+        console.log(domElement.toggle());
 
         return domElement;
     },

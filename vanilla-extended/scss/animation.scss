@@ -1,32 +1,25 @@
 ////////////////////////////////////////////////////////////////////////////////
 /// Transition speeds
 ////////////////////////////////////////////////////////////////////////////////
+
 cui-dialog {
-    opacity: 0;
-    pointer-events:none;
+    transition: .25s all ease-in-out;
 }
 
-.cui-dialog--container {
-    transition: .45s all ease-in-out;
-
-    &.__hasBackground {
-        transition: .25s all ease-in-out;
-    }
+.cui-dialog--container.__hasBackground {
+    transition: .25s all ease-in-out;
 }
 
 .cui-dialog {
     transition: .45s all ease-in-out;
 }
 
-.cui-header {
-    transition:.25s ease-in-out all;
-}
-
 ////////////////////////////////////////////////////////////////////////////////
 /// Closed STATE
 ////////////////////////////////////////////////////////////////////////////////
-.cui-dialog--container {
+cui-dialog {
     opacity: 0;
+    pointer-events:none;
 
     .cui-dialog {
         transform:translateY(-50px);
@@ -37,14 +30,10 @@ cui-dialog {
 ////////////////////////////////////////////////////////////////////////////////
 /// Open STATE
 ////////////////////////////////////////////////////////////////////////////////
+
 cui-dialog.__isOpen {
     opacity: 1;
     pointer-events: auto;
-}
-
-cui-dialog.__isOpen .cui-dialog--container,
-.cui-dialog--container.__isOpen {
-    opacity: 1;
 
     &.__isBackground {
         pointer-events:auto;
