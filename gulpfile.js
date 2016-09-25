@@ -23,12 +23,12 @@ var wwwDev = './';
 var watching   = {
     default: {
         scss: [
-            './scss/*.scss',
-            './scss/**/*.scss',
+            './_scss/*.scss',
+            './_scss/**/*.scss',
         ],
         js: [
-            './lib/*.js',
-            './lib/**/*.js',
+            './_js/*.js',
+            './_js/**/*.js',
         ]
     }
 };
@@ -40,8 +40,12 @@ var source    = {
 			'./scss/index.scss'
         ],
         js: [
-            './lib/*.js',
-            './lib/**/*.js',
+            './_js/api.js',
+            './_js/helper.js',
+            './_js/helpers/initialize.js',
+            './_js/helpers/node-inserted.js',
+            './_js/helpers/change-dialog-state.js',
+            './_js/events.js',
         ]
     },
 };
@@ -51,7 +55,7 @@ var source    = {
 var destination    = {
     default: {
         css:     wwwDev + '/css',
-        js:      wwwDev + '/dist'
+        js:      wwwDev + '/lib'
     }
 };
 
@@ -69,7 +73,7 @@ var port = 5000;
 gulp.task('var:default',function() {
 	app     = 'default';
 	cssName = 'cui-dialog';
-    jsName  = 'scripts.js';
+    jsName  = 'cui-dialog.js';
     port    = port;
     www     = wwwDev;
 });
@@ -127,6 +131,7 @@ gulp.task('minify:js',function() {
 
 gulp.task('move:js',function() {
     return gulp.src(source[app].js)
+            .pipe(concat(jsName))
         	.pipe(gulp.dest(destination[app].js))
 });
 
@@ -170,7 +175,7 @@ gulp.task('dev+js',     ['move:js' , 'watch:js'                                 
 ////////////////////////////////////////////////////////////////////////////////
 
 gulp.task('default', [  'var:default',
-                        //'dev+js',
+                        'dev+js',
                         'dev+css',
                         'start-server'
         ]);
