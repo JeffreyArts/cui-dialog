@@ -1,0 +1,45 @@
+cui-dialog.nice .cui-dialog {
+    border-radius: 15px;
+    bottom: 100px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    left: 100px;
+    right: 100px;
+    top: 100px;
+}
+
+cui-dialog.nice .cui-dialog--container {
+    -webkit-mix-blend-mode: lighten;
+    mix-blend-mode: lighten;
+    background-image: linear-gradient(#f00 0%, #f09 100%);
+}
+
+cui-dialog.nice .cui-dialog--container:after {
+    background-color: rgba(0,0,0,.2);
+    content:'';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+cui-dialog.nice .cui-dialog--close {
+    color: tomato;
+    transition: .4s ease-out all;
+}
+
+cui-dialog.nice .cui-dialog--close:hover {
+    transform: scale(1.4) rotate(360deg);
+}
+
+cui-dialog.nice .cui-dialog--close:active {
+    color: red;
+}
+
+cui-dialog.nice .cui-dialog--close::before,
+cui-dialog.nice .cui-dialog--close::after {
+    height: 16px;
+    width: 2px;
+    margin: -8px -1px 0 0;
+}
