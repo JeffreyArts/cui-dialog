@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ui Dialog</title>
+    <link rel="stylesheet" href="./../../css/cui-dialog.css">
+    <link rel="stylesheet" href="./../demo.css">
+
+    <style>
+
+    </style>
+    <script>
+        var openBob = function(){
+            var bob = document.querySelector('cui-dialog[name=bob]');
+            bob.open();
+        }
+    </script>
+</head>
+<body>
+
+    <main class="container">
+        <div>
+            <button onclick="cuiDialog.open('alice')">Open dialog Alice</button>
+            <button onclick="openBob()">Open dialog Bob</button>
+        </div>
+        <br>
+        <p>2 Dialogs which can be openened by 2 of the possible API's.</p>
+    </main>
+
+
+    <cui-dialog name="alice">
+        <h1>Hi Alice</h1>
+    </cui-dialog>
+
+    <cui-dialog name="bob">
+        <h1>Hello Bob</h1>
+    </cui-dialog>
+
+
+    <script src="./../../lib/cui-dialog.js"></script>
+
+</body>
+</html>

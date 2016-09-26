@@ -1,5 +1,10 @@
 $dialogMargin: 24px;
 $dialogPadding: 48px;
+$dialogBackground: #fff;
+
+$iconColor: #333;     // The color of the cross icon
+$iconSize: 32px;      // The size of the icon
+$crossThickness: 1px; // The thickness of the cross
 
 cui-dialog {
     position: absolute;
@@ -8,6 +13,7 @@ cui-dialog {
     left: 0;
     right: 0;
 }
+
 /*
     Dialog  Container
  */
@@ -32,7 +38,7 @@ cui-dialog {
     overflow: hidden;
     padding: $dialogPadding;
     z-index: 1993;
-    background-color: #fff;
+    background-color: $dialogBackground;
 }
 
 
@@ -42,24 +48,24 @@ cui-dialog {
     Dialog Close icon
  */
 
-$iconSize: 36px; // The size of the icon
 
 .cui-dialog--close {
     // The icon is being displayed in the center of this element, to move it downwards, increase the height value
     display: block;
     position: absolute;
-    right: $dialogPadding/2;
-    top: $dialogPadding/2;
-    height: $dialogPadding*2 - $iconSize/2;
-    width: $dialogPadding*2 - $iconSize/2;
+    right: 0;
+    top: 0;
+    height: $iconSize;
+    width: $iconSize;
     z-index: 1;
+    padding: #{($dialogPadding - $iconSize)/2};
 
     &:before,
     &:after {
-        width: 1px;
+        width: $crossThickness;
         height: $iconSize;
-        margin: -#{$iconSize/2} -0.5px 0 0;
-        background-color: #222;
+        margin: -#{$iconSize/2} -$crossThickness/2 0 0;
+        background-color: $iconColor;
         content:'';
         position: absolute;
         transform-origin:center;
@@ -80,12 +86,14 @@ $iconSize: 36px; // The size of the icon
     Dialog Content
  */
 .cui-dialog--content {
-    width: calc(100% + #{$dialogPadding*2});
+    width: 100%;
+    height: 100%;
+    overflow: auto;
     margin-left: -$dialogPadding;
     padding-left: $dialogPadding;
     padding-right: $dialogPadding;
 }
 
-@import './animation';
-@import './demo';
+@import './open-state';
 @import './nodeInserted';
+@import './animation';

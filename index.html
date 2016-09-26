@@ -8,7 +8,7 @@
 
     <script>
         document.addEventListener("changeDialogState", function(event) {
-            console.log(event);
+            toggleBodyClass(event.detail.dialog);
         });
 
         var toggleBodyClass = function(domElement){
@@ -21,10 +21,10 @@
             }
         }
     </script>
+
 </head>
 <body>
 
-    <div class="bg"></div>
     <button onclick="cuiDialog.open('Jeffrey')">Open dialog Jeffrey</button>
     <button onclick="cuiDialog.open('Ian')">Open dialog Ian</button>
 

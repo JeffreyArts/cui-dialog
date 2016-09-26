@@ -179,8 +179,8 @@ gulp.task('build+js',     ['move:js', 'minify:js'                               
 
 gulp.task('default', [  'var:default',
                         'dev+js',
-                        'dev+css',
-                        'start-server'
+                        'dev+css'
+                        //'start-server'
         ]);
 gulp.task('build', [  'var:default',
                         'build+js',

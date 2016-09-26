@@ -34,16 +34,17 @@ cui-dialog {
 .cui-dialog--close {
   display: block;
   position: absolute;
-  right: 24px;
-  top: 24px;
-  height: 78px;
-  width: 78px;
-  z-index: 1; }
+  right: 0;
+  top: 0;
+  height: 32px;
+  width: 32px;
+  z-index: 1;
+  padding: 8px; }
   .cui-dialog--close:before, .cui-dialog--close:after {
     width: 1px;
-    height: 36px;
-    margin: -18px -0.5px 0 0;
-    background-color: #222;
+    height: 32px;
+    margin: -16px -0.5px 0 0;
+    background-color: #333;
     content: '';
     position: absolute;
     -webkit-transform-origin: center;
@@ -63,82 +64,20 @@ cui-dialog {
     Dialog Content
  */
 .cui-dialog--content {
-  width: calc(100% + 96px);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   margin-left: -48px;
   padding-left: 48px;
   padding-right: 48px; }
 
 cui-dialog {
-  transition: .25s all ease-in-out; }
-
-.cui-dialog--container.__hasBackground {
-  transition: .25s all ease-in-out; }
-
-.cui-dialog {
-  transition: .45s all ease-in-out; }
-
-cui-dialog {
   opacity: 0;
   pointer-events: none; }
-  cui-dialog .cui-dialog {
-    -webkit-transform: translateY(-50px);
-        -ms-transform: translateY(-50px);
-            transform: translateY(-50px); }
 
 cui-dialog.__isOpen {
   opacity: 1;
   pointer-events: auto; }
-  cui-dialog.__isOpen.__isBackground {
-    pointer-events: auto; }
-  cui-dialog.__isOpen .cui-dialog {
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-    pointer-events: auto; }
-
-body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
-  background-image: url("https://source.unsplash.com/random");
-  background-size: cover;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-content: center;
-      -ms-flex-line-pack: center;
-          align-content: center; }
-
-.bg {
-  background-image: url("https://source.unsplash.com/random");
-  background-position: center center;
-  background-size: cover;
-  -webkit-filter: blur(50px);
-          filter: blur(50px);
-  height: 50vh;
-  left: 0;
-  position: absolute;
-  top: 25vh;
-  width: 100%;
-  z-index: -1;
-  /* mix-blend-mode: soft-light; */
-  opacity: 0.5; }
-
-button {
-  font-size: 10vh;
-  display: inline-block;
-  font-family: Helvetica;
-  background: none transparent;
-  color: #fff;
-  border: none 0 transparent;
-  font-weight: bold;
-  font-family: 'Pacifico';
-  padding: 50px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); }
 
 @-webkit-keyframes cuiDialogNodeInserted {
   from {
@@ -157,3 +96,19 @@ cui-dialog {
           animation-duration: .001s;
   -webkit-animation-name: cuiDialogNodeInserted;
           animation-name: cuiDialogNodeInserted; }
+
+cui-dialog {
+  transition: .25s all ease-in-out; }
+
+.cui-dialog {
+  transition: .45s all ease-in-out; }
+
+cui-dialog .cui-dialog {
+  -webkit-transform: translateY(-50px);
+      -ms-transform: translateY(-50px);
+          transform: translateY(-50px); }
+
+cui-dialog.__isOpen .cui-dialog {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0); }

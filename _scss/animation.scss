@@ -6,9 +6,6 @@ cui-dialog {
     transition: .25s all ease-in-out;
 }
 
-.cui-dialog--container.__hasBackground {
-    transition: .25s all ease-in-out;
-}
 
 .cui-dialog {
     transition: .45s all ease-in-out;
@@ -18,13 +15,11 @@ cui-dialog {
 /// Closed STATE
 ////////////////////////////////////////////////////////////////////////////////
 cui-dialog {
-    opacity: 0;
-    pointer-events:none;
-
     .cui-dialog {
         transform:translateY(-50px);
     }
 }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -32,15 +27,7 @@ cui-dialog {
 ////////////////////////////////////////////////////////////////////////////////
 
 cui-dialog.__isOpen {
-    opacity: 1;
-    pointer-events: auto;
-
-    &.__isBackground {
-        pointer-events:auto;
-    }
-
     .cui-dialog {
         transform:translateY(0);
-        pointer-events:auto;
     }
 }
