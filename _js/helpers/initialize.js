@@ -1,10 +1,11 @@
 // Helper function for setting up the required changes to the `cui-dialog` domElement
 cuiDialogHelper.initialize = function(domElement) {
-    if (domElement.initialized) {
+    if (domElement.initialized ||  domElement.querySelector('.cui-dialog--container') !== null) {
         return;
     }
 
-    console.log('domElement initialized');
+
+    console.log('domElement initialized',  domElement.querySelector('.cui-dialog--container') == null);
 
     // Add state functionality
     domElement.state  = 'closed';
