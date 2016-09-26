@@ -20,6 +20,9 @@ cuiDialogHelper.initialize = function(domElement) {
     domElement.updateContent = function(content){
         domElement.querySelector('.cui-dialog--content').innerHTML = content;
     };
+    domElement.getContent = function(){
+        return domElement.querySelector('.cui-dialog--content').innerHTML;
+    };
 
 
     // Add required domElements and move the innerHTML to a new 'main' domElement

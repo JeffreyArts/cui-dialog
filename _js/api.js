@@ -39,4 +39,14 @@ var cuiDialog = {
             dialogDom.updateContent(value);
         }
     }
+
+    // Get the content of the targeted dialog
+    getContent: function(name) {
+        var dialogDom = document.querySelector('cui-dialog[name=' + name + ']');
+        if (dialogDom === null) {
+            throw 'No cui-dialog found with name `' + name + '`';
+        } else {
+            dialogDom.getContent();
+        }
+    }
 }
