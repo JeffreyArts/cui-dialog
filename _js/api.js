@@ -28,5 +28,15 @@ var cuiDialog = {
         } else {
             dialogDom.toggle();
         }
+    },
+
+    // Update the content of the dialog with `value`
+    updateContent: function(name, value) {
+        var dialogDom = document.querySelector('cui-dialog[name=' + name + ']');
+        if (dialogDom === null) {
+            throw 'No cui-dialog found with name `' + name + '`';
+        } else {
+            dialogDom.updateContent(value);
+        }
     }
 }

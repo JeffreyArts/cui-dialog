@@ -17,6 +17,9 @@ cuiDialogHelper.initialize = function(domElement) {
         var newState = this.state === 'closed' ? 'open' : 'closed';
         cuiDialogHelper.changeDialogState(this, newState);
     };
+    domElement.updateContent = function(content){
+        domElement.querySelector('.cui-dialog--content').innerHTML = content;
+    };
 
 
     // Add required domElements and move the innerHTML to a new 'main' domElement

@@ -68,6 +68,16 @@ button {
     display: inline-block;
 }
 
+textarea {
+    padding: 15px;
+    border-radius:5px;
+    border:1px solid #ccc;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: calc(100% - 60px);
+}
+
+
 [on-click] {
     cursor: pointer;
 }
