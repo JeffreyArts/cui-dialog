@@ -60,6 +60,15 @@ cuiDialog.toggle(name)
 Toggles the `.__isOpen` class on the `cui-dialog` domElement, which will hide/show the dialog.
 
 
+#### updateContent
+```
+cuiDialog.toggle(name, value)
+```
+**name** the name of the dialog you would like to change it contents of
+**value** the new value the dialog should hold
+Updates the content of the dialog.
+
+
 
 
 
@@ -75,27 +84,34 @@ Adds an `.__isOpen` class to the `cui-dialog` domElement, which will display the
 
 #### close
 ```
-cuiDialog.close()
+domElement.close()
 ```
 Removes the `.__isOpen` class from the `cui-dialog` domElement, which will hide the dialog.
 
 
 #### toggle
 ```
-cuiDialog.toggle()
+domElement.toggle()
 ```
 Toggles the `.__isOpen` class on the `cui-dialog` domElement, which will hide/show the dialog.
 
 
+#### updateContent
+```
+domElement.toggle(value)
+```
+Updates the content of the dialog.
+
+
 #### state (private)
 ```
-cuiDialog.state
+domElement.state
 ```
 A string which hold the value of the state the dialog is currently in
 
 #### initialized (private)
 ```
-cuiDialog.initialized
+domElement.initialized
 ```
 A boolean which is set to prevent a dialog from being initialized multiple times. This can occur when it takes more time to fullt load the
 document than it takes for the css animation to trigger the `cuiDialogNodeInserted` function.
