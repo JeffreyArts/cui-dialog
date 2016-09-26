@@ -29,11 +29,8 @@ cuiDialogHelper.initialize = function(domElement) {
     var content = domElement.innerHTML;
 
     var background = document.createElement('figure');
-        background.className = 'cui-dialog--container __isBackground';
+        background.className = 'cui-dialog--container';
         background.onclick = domElement.close;
-
-    var container = document.createElement('div');
-        container.className = 'cui-dialog--container';
 
     var dialog = document.createElement('section');
         dialog.className = 'cui-dialog';

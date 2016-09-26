@@ -23,10 +23,7 @@ cui-dialog {
     height: 100%;
     z-index: 1990;
     margin: 0;
-
-    &.__isBackground {
-        background-color: rgba(0,0,0,.5);
-    }
+    background-color: rgba(0,0,0,.5);
 }
 
 .cui-dialog {

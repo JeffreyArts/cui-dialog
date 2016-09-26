@@ -13,9 +13,8 @@ cui-dialog {
   width: 100%;
   height: 100%;
   z-index: 1990;
-  margin: 0; }
-  .cui-dialog--container.__isBackground {
-    background-color: rgba(0, 0, 0, 0.5); }
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
 
 .cui-dialog {
   position: absolute;
