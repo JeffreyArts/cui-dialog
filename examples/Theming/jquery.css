@@ -1,0 +1,32 @@
+.jquery-theme .cui-dialog {
+    border-radius: 10px;
+    margin: auto;
+    max-height: 200px;
+    max-width: 500px;
+    padding: 15px 30px;
+    box-shadow: 0 0 10px #000;
+}
+
+.jquery-theme .cui-dialog--container.__isBackground {
+    background-color: rgba(0,0,0,.75);
+}
+
+.jquery-theme .cui-dialog--close {
+    background-color: #000;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    height: 12px;
+    width: 12px;
+    right: -12px;
+    top: -12px;
+    padding: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,.6);
+}
+
+.jquery-theme .cui-dialog--close:before,
+.jquery-theme .cui-dialog--close:after {
+    width: 3px;
+    height: 12px;
+    color: #fff;
+    margin: -6px 0 0 -1.5px;
+}

@@ -16,7 +16,7 @@ cui-dialog {
 ////////////////////////////////////////////////////////////////////////////////
 cui-dialog {
     .cui-dialog {
-        transform:translateY(-50px);
+        //transform:translateY(-50px);
     }
 }
 
@@ -28,6 +28,6 @@ cui-dialog {
 
 cui-dialog.__isOpen {
     .cui-dialog {
-        transform:translateY(0);
+        //transform:translateY(0);
     }
 }

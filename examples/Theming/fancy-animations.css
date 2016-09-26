@@ -1,0 +1,34 @@
+
+/*
+    Transition speeds
+*/
+
+cui-dialog.custom-animation {
+    transition: .25s all ease-in-out;
+}
+
+
+
+.custom-animation .cui-dialog {
+    transition: .5s transform linear;
+}
+
+/*
+    Closed STATE
+*/
+cui-dialog.custom-animation .cui-dialog {
+    transform: translateY(-100px) scaleX(1.25);
+}
+
+
+
+
+
+
+/*
+    Open STATE
+*/
+
+cui-dialog.custom-animation.__isOpen .cui-dialog {
+    transform: translateY(0) scaleX(1);
+}
