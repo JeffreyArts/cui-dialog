@@ -5,8 +5,6 @@ cuiDialogHelper.initialize = function(domElement) {
     }
 
 
-    console.log('domElement initialized',  domElement.querySelector('.cui-dialog--container') == null);
-
     // Add state functionality
     domElement.state  = 'closed';
     domElement.close  = function(){
