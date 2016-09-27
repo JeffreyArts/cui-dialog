@@ -12,6 +12,7 @@
             //document.querySelector('cui-dialog[name="dialog"]').updateContent(event.target.value);
             cuiDialog.updateContent('dialog', event.target.value);
         }
+
     </script>
 </head>
 
@@ -24,13 +25,19 @@
         <textarea onkeyup="updateDialog(event)" cols="30" rows="10"></textarea>
     </main>
 
-    <cui-dialog name="dialog">
-        <h1>This is a dialog</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut totam, repellat maxime est animi veritatis unde aperiam placeat natus! Veritatis quos, porro non laboriosam adipisci eaque esse expedita voluptate architecto.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quos quas quisquam accusantium, dolor recusandae deserunt nisi numquam voluptates dolores consectetur quis est optio consequatur, maiores culpa assumenda. Nemo, esse?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sapiente facilis totam sequi animi deleniti impedit facere, quo voluptatibus, quasi explicabo! Esse sapiente adipisci nulla et similique, eligendi molestiae quidem?</p>
-        <p> quia commodi cupiditate velit nobis ipsum, consequuntur asperiores voluptatibus beatae odio optio aliquam dolore, est itaque tempore. adsf Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae temporibus sed obcaecati maiores minus, soluta officia modi, ipsam sint quasi deleniti, ex odio totam culpa saepe, dolores qui quod fuga.</span><span>Vel iste, minus, ad, delectus in odio consequatur quis sapiente, illo id corporis vitae necessitatibus dolorem doloribus perspiciatis fugiat eligendi nisi ut itaque esse consequuntur fugit aperiam numquam. Quis, unde.</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto molestiae aliquid, laborum, aspernatur minus tempore repellat fugit totam aut sunt. Ad dolor dolorum cumque, amet nostrum ipsam quibusdam harum numquam!</p>
+    <cui-dialog name="dialog"><h1>This is a dialog</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut totam, repellat maxime est animi veritatis unde aperiam placeat natus! Veritatis quos, porro non laboriosam adipisci eaque esse expedita voluptate architecto.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste quos quas quisquam accusantium, dolor recusandae deserunt nisi numquam voluptates dolores consectetur quis est optio consequatur, maiores culpa assumenda. Nemo, esse?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sapiente facilis totam sequi animi deleniti impedit facere, quo voluptatibus, quasi explicabo! Esse sapiente adipisci nulla et similique, eligendi molestiae quidem?</p>
+
+<p> quia commodi cupiditate velit nobis ipsum, consequuntur asperiores voluptatibus beatae odio optio aliquam dolore, est itaque tempore. adsf Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae temporibus sed obcaecati maiores minus, soluta officia modi, ipsam sint quasi deleniti, ex odio totam culpa saepe, dolores qui quod fuga.Vel iste, minus, ad, delectus in odio consequatur quis sapiente, illo id corporis vitae necessitatibus dolorem doloribus perspiciatis fugiat eligendi nisi ut itaque esse consequuntur fugit aperiam numquam. Quis, unde.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto molestiae aliquid, laborum, aspernatur minus tempore repellat fugit totam aut sunt. Ad dolor dolorum cumque, amet nostrum ipsam quibusdam harum numquam!</p>
     </cui-dialog>
 
     <script src="./../../lib/cui-dialog.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",function(){
+            var text = cuiDialog.getContent('dialog');
+            document.querySelector('textarea').value = text;
+        }, false);
 
+    </script>
 </body>
 </html>

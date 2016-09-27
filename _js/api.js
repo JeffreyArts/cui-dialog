@@ -46,7 +46,7 @@ var cuiDialog = {
         if (dialogDom === null) {
             throw 'No cui-dialog found with name `' + name + '`';
         } else {
-            dialogDom.getContent();
+            return dialogDom.getContent();
         }
     }
 }
