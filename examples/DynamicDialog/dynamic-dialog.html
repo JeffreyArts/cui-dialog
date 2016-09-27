@@ -10,7 +10,7 @@
         var updateDialog = function(event){
             console.log(event.target.value);
             //document.querySelector('cui-dialog[name="dialog"]').updateContent(event.target.value);
-            cuiDialog.updateContent('dialog', event.target.value);
+            cuiDialog('dialog').updateContent( event.target.value );
         }
 
     </script>
@@ -19,7 +19,7 @@
 <body>
 
     <main class="container">
-        <button onclick="cuiDialog.open('dialog')">Dynamic update dialog</button>
+        <button onclick="cuiDialog('dialog').open()">Dynamic update dialog</button>
         <br>
         <p>Update the content of the dialog by editing the textarea below</p>
         <textarea onkeyup="updateDialog(event)" cols="30" rows="10"></textarea>
@@ -34,7 +34,7 @@
     <script src="./../../lib/cui-dialog.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded",function(){
-            var text = cuiDialog.getContent('dialog');
+            var text = cuiDialog('dialog').getContent();
             document.querySelector('textarea').value = text;
         }, false);
 

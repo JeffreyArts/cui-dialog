@@ -40,21 +40,21 @@ If you want to use a centralized way to interaction with the cui-dialog's you ca
 
 #### open
 ```
-cuiDialog.open(name)
+cuiDialog(name).open()
 ```
 **name** the name of the dialog you would like to open.
 Adds an `.__isOpen` class to the `cui-dialog` domElement, which will display the dialog as open.
 
 #### close
 ```
-cuiDialog.close(name)
+cuiDialog(name).close()
 ```
 **name** the name of the dialog you would like to close.
 Removes the `.__isOpen` class from the `cui-dialog` domElement, which will hide the dialog.
 
 #### toggle
 ```
-cuiDialog.toggle(name)
+cuiDialog(name).toggle()
 ```
 **name** the name of the dialog you would like to toggle it's state (open or closed).
 Toggles the `.__isOpen` class on the `cui-dialog` domElement, which will hide/show the dialog.
@@ -62,7 +62,7 @@ Toggles the `.__isOpen` class on the `cui-dialog` domElement, which will hide/sh
 
 #### updateContent
 ```
-cuiDialog.toggle(name, value)
+cuiDialog(name).toggle(value)
 ```
 **name** the name of the dialog you would like to change it contents of.
 **value** the new value the dialog should hold.
@@ -71,7 +71,7 @@ Updates the content of the dialog.
 
 #### getContent
 ```
-cuiDialog.getContent(name)
+cuiDialog(name).getContent()
 ```
 **name** the name of the dialog you would like to get its content of.
 Returns the content of the dialog.
