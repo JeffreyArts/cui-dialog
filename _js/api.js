@@ -1,4 +1,5 @@
 // cui Dialog API
+
 var cuiDialog = function(name) {
 
     var dialogDom = document.querySelector('cui-dialog[name=' + name + ']');
@@ -36,5 +37,4 @@ var cuiDialog = function(name) {
             return dialogDom.getContent();
         }
     }
-
 }
