@@ -46,6 +46,7 @@ var source    = {
             './_js/helpers/node-inserted.js',
             './_js/helpers/change-dialog-state.js',
             './_js/events.js',
+            './_js/polyfill/customEvent.js',
         ]
     },
 };
