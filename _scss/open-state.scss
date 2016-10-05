@@ -3,7 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 cui-dialog {
     opacity: 0;
-    pointer-events:none;
+    top: 100%;
 }
 
 
@@ -13,5 +13,5 @@ cui-dialog {
 
 cui-dialog.__isOpen {
     opacity: 1;
-    pointer-events: auto;
+    top: 0%;
 }
