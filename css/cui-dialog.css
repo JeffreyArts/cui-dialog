@@ -94,8 +94,5 @@ cui-dialog {
   -webkit-animation-name: cuiDialogNodeInserted;
           animation-name: cuiDialogNodeInserted; }
 
-cui-dialog {
-  transition: .25s all ease-in-out; }
-
 .cui-dialog {
-  transition: .45s all ease-in-out; }
+  transition: .45s transform ease-in-out; }
