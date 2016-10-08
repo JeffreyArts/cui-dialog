@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <title>Ui Dialog</title>
+    <link rel="stylesheet" href="./../../css/cui-dialog.css">
+    <link rel="stylesheet" href="./../demo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script>
+        var app = angular.module('app', []);
+        app.controller('test', function(){
+            this.test = 'a'
+        });
+    </script>
+</head>
+<body ng-controller="test as a">
+    <main class="container">
+        <div>
+            <button onclick="cuiDialog('alice').open()">Open dialog Alice</button>
+            <button onclick="cuiDialog('bob').open()">Open dialog Bob</button>
+        </div>
+        <br>
+
+        <p>Dialogs which can be openened by 2 of the possible API's.</p>
+        <textarea ng-model="a.test" cols="30" rows="10"></textarea>
+    </main>
+
+
+    <cui-dialog name="alice" ng-include="'./content.html'"></cui-dialog>
+    <cui-dialog name="bob">{{a.test}}</cui-dialog>
+
+
+    <script src="./../../lib/cui-dialog.js"></script>
+
+</body>
+</html>
