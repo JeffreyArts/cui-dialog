@@ -1,0 +1,27 @@
+{
+  "name": "Cui-Dialog",
+  "description": "A dialog webcomponent written in Ecmascript 5. Works with multiple libraries without any dependencies.",
+  "main": "lib/cui-dialog-full.js",
+  "authors": [
+    "Jeffrey Arts <sjeffff@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "dialog",
+    "webcomponent",
+    "html5",
+    "clean-ui",
+    "modal",
+    "vanilla js",
+    "native js"
+  ],
+  "homepage": "https://github.com/JeffreyArts/cui-dialog",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

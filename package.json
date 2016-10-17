@@ -1,13 +1,13 @@
 {
-  "name": "Clean UI - Dialog",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.html",
+  "name": "Cui-Dialog",
+  "version": "1.0.0",
+  "description": "A dialog webcomponent written in Ecmascript 5. Works with multiple libraries without any dependencies.",
+  "main": "lib/cui-dialog-full.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jeffrey Arts <sjeffff@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "cssnano": "^3.5.2",

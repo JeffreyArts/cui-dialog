@@ -6,6 +6,13 @@ This code allows you to add a dialog to your project. The dialog can be added wi
 Include the following files to your project (as high as possible):
 - /lib/cui-dialog-full.min.js
 
+## Bower
+`bower install cui-dialog`
+
+## NPM
+`npm install cui-dialog`
+
+
 And use a dialog by adding the cui-dialog as followed:
 
 ### HTML
