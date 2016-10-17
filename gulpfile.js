@@ -49,12 +49,31 @@ var source    = {
             './_js/polyfill/customEvent.js',
         ]
     },
+    full: {
+        scss: [
+			'./_scss/index.scss'
+        ],
+        js: [
+            './_js/api.js',
+            './_js/helper.js',
+            './_js/helpers/initialize.js',
+            './_js/helpers/node-inserted.js',
+            './_js/helpers/add-css.js',
+            './_js/helpers/change-dialog-state.js',
+            './_js/events.js',
+            './_js/polyfill/customEvent.js',
+        ]
+    },
 };
 
 
 // Destination directory        ////////////////////////////////////////////////
 var destination    = {
     default: {
+        css:     wwwDev + '/css',
+        js:      wwwDev + '/lib'
+    },
+    full: {
         css:     wwwDev + '/css',
         js:      wwwDev + '/lib'
     }
@@ -76,6 +95,13 @@ gulp.task('var:default',function() {
 	cssName = 'cui-dialog';
     jsName  = 'cui-dialog';
     port    = port;
+    www     = wwwDev;
+});
+
+gulp.task('var:full',function() {
+	app     = 'full';
+    cssName = 'cui-dialog';
+    jsName  = 'cui-dialog-full';
     www     = wwwDev;
 });
 
@@ -167,7 +193,7 @@ gulp.task('start-server', function() {
 ////////////////////////////////////////////////////////////////////////////////
 
 gulp.task('dev+css',    ['scss->css','watch:scss'                               ]);
-gulp.task('dev+js',     ['move:js' , 'watch:js'                                 ]);
+gulp.task('dev+js',     ['move:js' , 'watch:js', 'minify:js'                    ]);
 
 gulp.task('build+css',    ['scss->css', 'minify:scss'                           ]);
 gulp.task('build+js',     ['move:js', 'minify:js'                               ]);
@@ -183,7 +209,7 @@ gulp.task('default', [  'var:default',
                         'dev+css'
                         //'start-server'
         ]);
-gulp.task('build', [  'var:default',
+gulp.task('build-js', [  'var:full',
                         'build+js',
                         'build+css'
         ]);
