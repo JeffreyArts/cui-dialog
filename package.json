@@ -1,6 +1,6 @@
 {
-  "name": "Cui-Dialog",
-  "version": "1.0.0",
+  "name": "cui-dialog",
+  "version": "1.0.3",
   "description": "A dialog webcomponent written in Ecmascript 5. Works with multiple libraries without any dependencies.",
   "main": "lib/cui-dialog-full.js",
   "scripts": {

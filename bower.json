@@ -1,5 +1,5 @@
 {
-  "name": "Cui-Dialog",
+  "name": "cui-dialog",
   "description": "A dialog webcomponent written in Ecmascript 5. Works with multiple libraries without any dependencies.",
   "main": "lib/cui-dialog-full.js",
   "authors": [
